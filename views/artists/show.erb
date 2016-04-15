@@ -9,11 +9,17 @@
 <body>
   <p><%= @artist.name %> </p>
   <p><a href="/artists/<%=@artist.id%>/edit">Edit</a></p>
+
     <p><img src="<%= @artist.photo_url %>"</img></p>
+
     <p><%= @artist.nationality %></p>
+
     <% @artist.songs.each do |song| %>
-    <p><%= song.title %> </p>
-        <% end %>
+      <p>
+        <%= "#{@artist.name} - #{song.title}" %>
+      </p>
+
+    <% end %>
 
   <h3>Delete Artist</h2>
 <form action="/artists/<%= @artist.id %>" method="post">
